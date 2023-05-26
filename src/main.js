@@ -2,6 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.querySelector("#search-input");
   searchInput.focus();
 });
+
 const handleSearch = (event) => {
   event.preventDefault();
   const searchInput = document.querySelector("#search-input");
@@ -43,22 +44,24 @@ const createMovieCards = async () => {
   cardList.innerHTML = movies
     .map(
       (movie) => `
-<div class="movie-card" id=${movie.id}>
-    <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-    <h3>${movie.title}</h3>
-    <p>${movie.overview}</p>
-    <p>Rating: ${movie.vote_average}</p>
-</div>
-`
+        <div class="movie-card" id=${movie.id}>
+            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+            <h3>${movie.title}</h3>
+            <p>${movie.overview}</p>
+            <p>Rating: ${movie.vote_average}</p>
+        </div>`
     )
     .join("");
 
-  const movieCards = document.querySelectorAll(".movie-card");
-  movieCards.forEach((movieCard) =>
-    movieCard.addEventListener("click", (event) => {
-      alert(`영화 id: ${event.currentTarget.id}`);
-    })
-  );
+  cardList.addEventListener("click", ({ target }) => {
+    if (target !== cardList) {
+      if (target.className === "movie-card") {
+        alert(`영화 id: ${target.id}`);
+      } else {
+        alert(`영화 id: ${target.parentNode.id}`);
+      }
+    }
+  });
 };
 
 createMovieCards();
