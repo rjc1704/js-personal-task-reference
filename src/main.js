@@ -55,9 +55,11 @@ const createMovieCards = async () => {
 
   cardList.addEventListener("click", ({ target }) => {
     if (target !== cardList) {
-      if (target.className === "movie-card") {
+      // 카드 외 영역 클릭 시 무시
+      if (target.matches(".movie-card")) {
         alert(`영화 id: ${target.id}`);
       } else {
+        // 카드의 자식 태그 (img, h3, p) 클릭 시 부모의 id로 접근
         alert(`영화 id: ${target.parentNode.id}`);
       }
     }
