@@ -5,10 +5,10 @@ export const handleSearch = (event, searchKeyword) => {
 
   movieCards.forEach((card) => {
     const title = card.querySelector(".movie-title").textContent.toLowerCase();
-    if (title.indexOf(searchKeyword) === -1) {
-      card.style.display = "none";
-    } else {
+    if (title.includes(searchKeyword)) {
       card.style.display = "block";
+    } else {
+      card.style.display = "none";
     }
   });
 };
