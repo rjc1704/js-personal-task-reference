@@ -1,18 +1,14 @@
-window.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.querySelector("#search-input");
-  searchInput.focus();
-});
+const searchInput = document.querySelector("#search-input");
+searchInput.focus();
 
 const handleSearch = (event) => {
   event.preventDefault();
-  const searchInput = document.querySelector("#search-input");
 
-  const searchKeyword = searchInput.value.toLowerCase();
   const movieCards = document.querySelectorAll(".movie-card");
+  const searchKeyword = searchInput.value.toLowerCase();
 
   movieCards.forEach((card) => {
-    const title = card.querySelector("h3").textContent.toLowerCase();
-
+    const title = card.querySelector(".movie-title").textContent.toLowerCase();
     if (title.indexOf(searchKeyword) !== -1) {
       card.style.display = "block";
     } else {
@@ -46,7 +42,7 @@ const createMovieCards = async () => {
       (movie) => `
         <div class="movie-card" id=${movie.id}>
             <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-            <h3>${movie.title}</h3>
+            <h3 class="movie-title">${movie.title}</h3>
             <p>${movie.overview}</p>
             <p>Rating: ${movie.vote_average}</p>
         </div>`
