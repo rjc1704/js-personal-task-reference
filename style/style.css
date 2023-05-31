@@ -9,7 +9,38 @@ body {
   min-height: 100vh;
 }
 
-.card-list {
+header {
+  background-color: #ffe194;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
+
+#search-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+
+#search-form label {
+  font-size: 25px;
+}
+
+#search-form input {
+  margin-left: 20px;
+  min-width: 200px;
+  padding: 5px 10px;
+}
+
+#search-form button {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+#card-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
@@ -32,37 +63,6 @@ body {
   border-radius: 10px;
 }
 
-header {
-  background-color: #ffe194;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 0;
-}
-
-.search {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 20px 0;
-  border-bottom: 1px solid black;
-}
-
-.search label {
-  font-size: 25px;
-}
-
-.search input {
-  margin-left: 20px;
-  min-width: 200px;
-  padding: 5px 10px;
-}
-
-.search button {
-  margin-left: 10px;
-  padding: 5px;
-}
-
-h3 {
+.movie-card .movie-title {
   margin-bottom: 10px;
 }
