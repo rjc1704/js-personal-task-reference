@@ -1,5 +1,6 @@
 export const generateMovieCards = async () => {
   const movies = await fetchMovieData();
+
   const cardList = document.querySelector("#card-list");
   cardList.innerHTML = movies
     .map(
@@ -16,16 +17,15 @@ export const generateMovieCards = async () => {
   cardList.addEventListener("click", handleClickCard);
 
   // 이벤트 위임: 하위요소에서 발생한 이벤트를 상위요소에서 처리하도록 해줍니다.
-  function handleClickCard(event) {
-    const target = event.target;
-    if (target !== cardList) {
-      // 카드 외 영역 클릭 시 무시
-      if (target.matches(".movie-card")) {
-        alert(`영화 id: ${target.id}`);
-      } else {
-        // 카드의 자식 태그 (img, h3, p) 클릭 시 부모의 id로 접근
-        alert(`영화 id: ${target.parentNode.id}`);
-      }
+  function handleClickCard({ target }) {
+    // 카드 외 영역 클릭 시 무시
+    if (target === cardList) return;
+
+    if (target.matches(".movie-card")) {
+      alert(`영화 id: ${target.id}`);
+    } else {
+      // 카드의 자식 태그 (img, h3, p) 클릭 시 부모의 id로 접근
+      alert(`영화 id: ${target.parentNode.id}`);
     }
   }
 };
