@@ -1,6 +1,4 @@
-export const handleSearch = (event, searchKeyword) => {
-  event.preventDefault();
-
+export const handleSearch = (searchKeyword) => {
   const movieCards = document.querySelectorAll(".movie-card");
 
   movieCards.forEach((card) => {
