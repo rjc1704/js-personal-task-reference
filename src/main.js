@@ -9,6 +9,5 @@ searchInput.focus();
 const form = document.querySelector("#search-form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const searchKeyword = searchInput.value.toLowerCase();
-  handleSearch(searchKeyword);
+  handleSearch(searchInput.value);
 });

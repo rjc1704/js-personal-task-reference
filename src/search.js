@@ -3,7 +3,9 @@ export const handleSearch = (searchKeyword) => {
 
   movieCards.forEach((card) => {
     const title = card.querySelector(".movie-title").textContent.toLowerCase();
-    if (title.includes(searchKeyword)) {
+    const searchedValue = searchKeyword.toLowerCase();
+
+    if (title.includes(searchedValue)) {
       card.style.display = "block";
     } else {
       card.style.display = "none";
